@@ -15,7 +15,8 @@ export const site = {
    * empty links are hidden in production and flagged in development.
    */
   social: [
-    { label: "Instagram", href: "" },
+    // Handle taken from the camera credit on Troy The Magician's Pop Mart reel.
+    { label: "Instagram", href: "https://www.instagram.com/armanasadi08/" },
     { label: "YouTube", href: "" },
     { label: "Vimeo", href: "" },
     { label: "LinkedIn", href: "" },
@@ -39,6 +40,15 @@ export const site = {
  *   /public/reel/loop.mp4          silent 10–15s cut for the hero mask, ≤ 5 MB
  *   /public/reel/poster.webp       2400×1350 frame
  */
+const still = (
+  src: string,
+  width: number,
+  height: number,
+  aspect: ImageMedia["aspect"],
+  alt: string,
+  focus: string,
+): ImageMedia => ({ kind: "image", src, width, height, aspect, alt, focus });
+
 export const reel: {
   file: VideoMedia | null;
   loop: VideoMedia | null;
@@ -50,41 +60,11 @@ export const reel: {
   loop: null,
   embed: null,
   stills: [
-    {
-      kind: "image",
-      src: "/about/arman-on-set.jpg",
-      width: 1200,
-      height: 1800,
-      aspect: "2:3",
-      alt: "Arman on his camera rig at a Gunna show",
-      focus: "50% 30%",
-    },
-    {
-      kind: "image",
-      src: "/projects/manchester-united-chef-magz/still-01.jpg",
-      width: 900,
-      height: 1600,
-      aspect: "9:16",
-      alt: "Manchester United × Chef Magz shoot",
-      focus: "50% 42%",
-    },
-    {
-      kind: "image",
-      src: "/projects/darkest-man/frame-02.jpg",
-      width: 1280,
-      height: 720,
-      aspect: "16:9",
-      alt: "Darkest Man quiz shoot",
-      focus: "50% 50%",
-    },
-    {
-      kind: "image",
-      src: "/projects/darkest-man/frame-01.jpg",
-      width: 1280,
-      height: 720,
-      aspect: "16:9",
-      alt: "Darkest Man quiz shoot",
-      focus: "40% 40%",
-    },
+    still("/about/arman-on-set.jpg", 1200, 1800, "2:3", "Arman on his camera rig at a Gunna show", "50% 30%"),
+    still("/projects/max-khadar/frame-02.jpg", 1280, 720, "16:9", "One Question Go with Will Smith", "35% 45%"),
+    still("/projects/manchester-united-chef-magz/still-01.jpg", 900, 1600, "9:16", "Manchester United × Chef Magz shoot", "50% 42%"),
+    still("/projects/pop-mart-troy-the-magician/still-01.jpg", 640, 1136, "9:16", "Pop Mart store launch with Troy The Magician", "50% 40%"),
+    still("/projects/darkest-man/frame-02.jpg", 1280, 720, "16:9", "Darkest Man quiz shoot", "50% 50%"),
+    still("/projects/harry-pinero/frame-01.jpg", 1280, 720, "16:9", "Harry Pinero quiz with Beta Squad", "70% 40%"),
   ],
 };

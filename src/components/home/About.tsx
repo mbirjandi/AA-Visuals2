@@ -34,8 +34,8 @@ export function About() {
             </p>
             <div className="grid gap-6 text-[17px] leading-snug sm:grid-cols-2 sm:gap-x-[var(--col-gap)]">
               <p className="max-w-[34ch]">
-                Music videos for Gunna. Branded content for Manchester United and Pop Mart. YouTube with Harry Pinero,
-                Darkest Man and Max Khadar.
+                Music videos for Gunna. Branded content for Manchester United and Pop Mart. YouTube for Harry Pinero,
+                Darkest Man and Max Khadar, with guests including Will Smith and Beta Squad.
               </p>
               <p className="max-w-[30ch]">
                 Camera, edit and colour, start to finish.

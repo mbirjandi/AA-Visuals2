@@ -5,9 +5,9 @@ const ORDER: { slug: string; name: string; sub?: string }[] = [
   { slug: "gunna", name: "Gunna" },
   { slug: "manchester-united-chef-magz", name: "Manchester United", sub: "with Chef Magz" },
   { slug: "pop-mart-troy-the-magician", name: "Pop Mart", sub: "with Troy The Magician" },
-  { slug: "harry-pinero", name: "Harry Pinero" },
+  { slug: "harry-pinero", name: "Harry Pinero", sub: "with Beta Squad" },
   { slug: "darkest-man", name: "Darkest Man" },
-  { slug: "max-khadar", name: "Max Khadar" },
+  { slug: "max-khadar", name: "Max Khadar", sub: "with Will Smith" },
 ];
 
 export function Collaborations() {

@@ -83,7 +83,7 @@ export function ProjectIndex({ items, size = "lg", label }: { items: IndexItem[]
                   {it.name}
                 </span>
                 {it.sub ? (
-                  <span className="ml-3 align-top text-[max(13px,0.2em)] tracking-[-0.01em] text-[var(--fg-mute)] normal-case">
+                  <span className="ml-3 inline-block align-top whitespace-nowrap text-[max(13px,0.2em)] tracking-[-0.01em] text-[var(--fg-mute)] normal-case">
                     {it.sub}
                   </span>
                 ) : null}

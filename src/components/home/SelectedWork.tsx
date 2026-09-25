@@ -3,11 +3,14 @@ import { ViewTransition, type ReactNode } from "react";
 import { pad, projects } from "@/data/projects";
 import type { Media, Project } from "@/data/types";
 import { MediaFrame } from "../media/MediaFrame";
+import { ratioNum } from "../media/aspect";
 import { Reveal } from "../Reveal";
 import { StepTitle } from "../StepTitle";
 import { Credits } from "../Credits";
 
 const href = (p: Project) => `/work/${p.slug}`;
+const years = projects.map((p) => Number(p.year));
+const YEARS = `${Math.min(...years)}–${String(Math.max(...years)).slice(2)}`;
 const TYPES = ["to-project"];
 
 /** The media for a feature: links to the project, morphs into its hero. */
@@ -132,6 +135,7 @@ function Split({ p, i }: { p: Project; i: number }) {
       </div>
       <FeatureMedia
         p={p}
+        aspect={ratioNum(p.cover.aspect) >= 1 ? "4:5" : undefined}
         sizes="(min-width: 1024px) 34vw, 72vw"
         className="col-span-3 col-start-2 lg:col-span-4 lg:col-start-9 lg:mt-[18vh]"
         frameClass="chamfer-br"
@@ -177,6 +181,7 @@ function Inverse({ p, i }: { p: Project; i: number }) {
       <div className="frame grid-12 gap-y-10">
         <FeatureMedia
           p={p}
+          aspect={ratioNum(p.cover.aspect) < 0.8 ? "4:5" : undefined}
           sizes="(min-width: 1024px) 36vw, 100vw"
           className="col-span-4 lg:col-span-5"
         />
@@ -254,7 +259,7 @@ export function SelectedWork() {
           Selected work
         </h2>
         <p className="meta col-span-2 text-right text-[var(--fg-mute)] lg:col-span-3 lg:col-start-10">
-          {pad(projects.length)} projects — 2024/25
+          {pad(projects.length)} projects — {YEARS}
         </p>
       </header>
       <div className="flex flex-col gap-[clamp(120px,24vh,260px)]">

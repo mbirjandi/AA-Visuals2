@@ -8,6 +8,9 @@ Real assets already in use (from the previous site / public YouTube frames):
 | `public/projects/manchester-united-chef-magz/still-01.jpg` (900×1600) | MUFC cover + Instagram poster |
 | `public/projects/darkest-man/frame-01..03.jpg` (1280×720) | Darkest Man cover and case study |
 | `public/projects/darkest-man/thumbnail.jpg` | Kept for reference (not displayed) |
+| `public/projects/harry-pinero/frame-01..03.jpg` (1280×720) | Harry Pinero × Beta Squad (YouTube q011tqQk1qc) |
+| `public/projects/max-khadar/frame-01..03.jpg` (1280×720) | Max Khadar × Will Smith (YouTube tmmYdv_CqtY) |
+| `public/projects/pop-mart-troy-the-magician/still-01.jpg` (640×1136) | Pop Mart reel poster (Instagram DXURpWhDMIX) — low-res, replace with a 1080×1920 export if available |
 
 Everything else is declared with `pending()` in `src/data/projects.ts` and renders as a
 slate. In development each slate prints its exact path and spec. To replace one:
@@ -42,10 +45,8 @@ and grab the poster from the first frame.
 | Project | Files |
 | --- | --- |
 | Gunna | `cover.webp` 16:9, `hero.mp4` 16:9, `frame-01.webp` 16:9, `frame-02/03.webp` 4:5 |
-| Harry Pinero | `cover.webp`, `hero.mp4`, `frame-01..03.webp` — all 9:16 |
 | MUFC × Chef Magz | `frame-01/02.webp` 4:5, `frame-03.webp` 16:9 |
-| Pop Mart × Troy The Magician | `cover.webp` 4:5, `hero.mp4` 4:5, `frame-01.webp` 16:9, `frame-02.webp` 4:5 |
-| Max Khadar | `cover.webp` 16:9, `hero.mp4` 16:9, `frame-01/02.webp` 16:9 |
+| Pop Mart × Troy The Magician | `frame-01.webp` 16:9, `frame-02.webp` 4:5 |
 
 ## Showreel (`src/data/site.ts → reel`)
 
@@ -56,5 +57,6 @@ and grab the poster from the first frame.
 
 ## Links
 
-Social URLs in `src/data/site.ts → social` are empty. Empty links are hidden in
+Instagram is set to @armanasadi08 (from the camera credit on Troy's reel). YouTube,
+Vimeo and LinkedIn in `src/data/site.ts → social` are empty. Empty links are hidden in
 production and flagged “(link needed)” in development.

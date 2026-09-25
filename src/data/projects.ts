@@ -58,15 +58,27 @@ const mufcStill: ImageMedia = {
   focus: "50% 45%",
 };
 
-const dmFrame = (n: 1 | 2 | 3, alt: string, focus?: string): ImageMedia => ({
+/** Frames pulled from the published YouTube videos (1280 × 720). */
+const frame = (slug: string, n: 1 | 2 | 3, alt: string, focus?: string): ImageMedia => ({
   kind: "image",
-  src: `/projects/darkest-man/frame-0${n}.jpg`,
+  src: `/projects/${slug}/frame-0${n}.jpg`,
   width: 1280,
   height: 720,
   aspect: "16:9",
   alt,
   focus,
 });
+const dmFrame = (n: 1 | 2 | 3, alt: string, focus?: string) => frame("darkest-man", n, alt, focus);
+
+const popStill: ImageMedia = {
+  kind: "image",
+  src: "/projects/pop-mart-troy-the-magician/still-01.jpg",
+  width: 640,
+  height: 1136,
+  aspect: "9:16",
+  alt: "Troy The Magician carrying an armful of Pop Mart boxes out of the store",
+  focus: "50% 28%",
+};
 
 export const projects: Project[] = [
   {
@@ -108,30 +120,33 @@ export const projects: Project[] = [
     title: "Harry Pinero",
     titleLines: ["Harry", "Pinero"],
     client: "Harry Pinero",
-    year: "2025",
+    year: "2026",
     role: "Edit",
-    format: "9:16",
+    format: "16:9",
     category: "YouTube",
-    summary: "Vertical edits for Harry Pinero’s channel.",
+    summary: "‘Who’s The Smartest YouTuber’ with Beta Squad. Cut for Harry Pinero’s channel.",
     feature: "split",
-    cover: pending("harry-pinero", "cover.webp", "9:16", "Frame from a Harry Pinero vertical edit"),
-    hero: pending("harry-pinero", "hero.mp4", "9:16", "A Harry Pinero vertical edit"),
+    cover: frame("harry-pinero", 1, "Two contestants at the quiz table, one hiding a grin behind his hands", "70% 40%"),
+    hero: {
+      kind: "youtube",
+      id: "q011tqQk1qc",
+      title: "Who's The Smartest YouTuber Ft Beta Squad",
+      aspect: "16:9",
+      alt: "Harry Pinero — Who's The Smartest YouTuber ft Beta Squad, on YouTube",
+      poster: frame("harry-pinero", 1, "Two contestants at the quiz table"),
+    },
     blocks: [
-      {
-        layout: "pair",
-        media: [
-          pending("harry-pinero", "frame-01.webp", "9:16", "Frame from a Harry Pinero vertical edit"),
-          pending("harry-pinero", "frame-02.webp", "9:16", "Frame from a Harry Pinero vertical edit"),
-        ],
-      },
+      { layout: "full", media: frame("harry-pinero", 3, "Three contestants at the table, one arguing his answer", "50% 40%") },
       {
         layout: "offset",
         side: "left",
-        media: pending("harry-pinero", "frame-03.webp", "9:16", "Frame from a Harry Pinero vertical edit"),
+        media: frame("harry-pinero", 2, "Two contestants laughing, with the on-screen ‘Mafia’ graphic"),
+        caption: "From the final cut.",
       },
     ],
     credits: [
       { label: "Channel", value: "Harry Pinero" },
+      { label: "Featuring", value: "Beta Squad" },
       { label: "Edit", value: "Arman Asadi" },
     ],
   },
@@ -180,22 +195,29 @@ export const projects: Project[] = [
     client: "Pop Mart × Troy The Magician",
     year: "2025",
     role: "Videography",
-    format: "4:5",
+    format: "9:16",
     category: "Branded content",
-    summary: "Branded content for Pop Mart with Troy The Magician.",
+    summary: "A Pop Mart UK store launch with Troy The Magician. Filmed by Arman for Troy’s Instagram.",
     feature: "inverse",
-    cover: pending("pop-mart-troy-the-magician", "cover.webp", "4:5", "Still from the Pop Mart × Troy The Magician film"),
-    hero: pending("pop-mart-troy-the-magician", "hero.mp4", "4:5", "The Pop Mart × Troy The Magician film"),
+    cover: popStill,
+    hero: {
+      kind: "instagram",
+      id: "DXURpWhDMIX",
+      title: "Pop Mart UK store launch with Troy The Magician",
+      aspect: "9:16",
+      alt: "Pop Mart × Troy The Magician reel on Instagram",
+      poster: popStill,
+    },
     blocks: [
-      { layout: "full", media: pending("pop-mart-troy-the-magician", "frame-01.webp", "16:9", "Still from the Pop Mart × Troy The Magician film") },
+      { layout: "full", media: pending("pop-mart-troy-the-magician", "frame-01.webp", "16:9", "Still from the Pop Mart store launch") },
       {
         layout: "offset",
         side: "right",
-        media: pending("pop-mart-troy-the-magician", "frame-02.webp", "4:5", "Still from the Pop Mart × Troy The Magician film"),
+        media: pending("pop-mart-troy-the-magician", "frame-02.webp", "4:5", "Still from the Pop Mart store launch"),
       },
     ],
     credits: [
-      { label: "Client", value: "Pop Mart" },
+      { label: "Client", value: "Pop Mart UK" },
       { label: "With", value: "Troy The Magician" },
       { label: "Videography", value: "Arman Asadi" },
     ],
@@ -205,7 +227,7 @@ export const projects: Project[] = [
     title: "Darkest Man",
     titleLines: ["Darkest", "Man"],
     client: "Darkest Man",
-    year: "2025",
+    year: "2026",
     role: "Shoot and edit",
     format: "21:9",
     category: "YouTube production",
@@ -244,25 +266,35 @@ export const projects: Project[] = [
     title: "Max Khadar",
     titleLines: ["Max", "Khadar"],
     client: "Max Khadar",
-    year: "2024",
+    year: "2026",
     role: "Edit",
     format: "16:9",
     category: "YouTube production",
-    summary: "Cut for Max Khadar’s YouTube channel.",
+    summary: "‘One Question Go’ with Will Smith. Cut for Max Khadar’s channel.",
     feature: "type",
-    cover: pending("max-khadar", "cover.webp", "16:9", "Frame from the Max Khadar video"),
-    hero: pending("max-khadar", "hero.mp4", "16:9", "The Max Khadar video"),
+    cover: frame("max-khadar", 1, "Will Smith laughing with the host across the table", "55% 35%"),
+    hero: {
+      kind: "youtube",
+      id: "tmmYdv_CqtY",
+      title: "ONE QUESTION GO FT WILL SMITH",
+      aspect: "16:9",
+      alt: "Max Khadar — One Question Go ft Will Smith, on YouTube",
+      poster: frame("max-khadar", 1, "Will Smith laughing with the host across the table"),
+    },
     blocks: [
       {
-        layout: "pair",
-        media: [
-          pending("max-khadar", "frame-01.webp", "16:9", "Frame from the Max Khadar video"),
-          pending("max-khadar", "frame-02.webp", "16:9", "Frame from the Max Khadar video"),
-        ],
+        layout: "scope",
+        media: { ...frame("max-khadar", 2, "Will Smith lunging forward in his chair as the host clutches his head", "50% 45%"), aspect: "21:9" },
+      },
+      {
+        layout: "offset",
+        side: "right",
+        media: frame("max-khadar", 3, "Will Smith mid-answer while the host checks his phone"),
       },
     ],
     credits: [
       { label: "Channel", value: "Max Khadar" },
+      { label: "Featuring", value: "Will Smith" },
       { label: "Edit", value: "Arman Asadi" },
     ],
   },
